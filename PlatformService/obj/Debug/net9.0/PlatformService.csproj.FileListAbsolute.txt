@@ -314,6 +314,7 @@
 /Users/khurshedegamov/RiderProjects/microservices-learning/PlatformService/obj/Debug/net9.0/PlatformService.csproj.CoreCompileInputs.cache
 /Users/khurshedegamov/RiderProjects/microservices-learning/PlatformService/obj/Debug/net9.0/PlatformService.MvcApplicationPartsAssemblyInfo.cs
 /Users/khurshedegamov/RiderProjects/microservices-learning/PlatformService/obj/Debug/net9.0/PlatformService.MvcApplicationPartsAssemblyInfo.cache
+/Users/khurshedegamov/RiderProjects/microservices-learning/PlatformService/obj/Debug/net9.0/PlatformService.sourcelink.json
 /Users/khurshedegamov/RiderProjects/microservices-learning/PlatformService/obj/Debug/net9.0/scopedcss/bundle/PlatformService.styles.css
 /Users/khurshedegamov/RiderProjects/microservices-learning/PlatformService/obj/Debug/net9.0/staticwebassets.build.json
 /Users/khurshedegamov/RiderProjects/microservices-learning/PlatformService/obj/Debug/net9.0/staticwebassets.build.json.cache

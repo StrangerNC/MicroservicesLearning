@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformService", "PlatformService\PlatformService.csproj", "{093AF737-DE23-4CF2-8207-7E3E50B05B23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandsService", "CommandsService\CommandsService.csproj", "{E65E80EE-01B7-42D5-814C-E20C0FFD526C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandService", "CommandService\CommandService.csproj", "{E65E80EE-01B7-42D5-814C-E20C0FFD526C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

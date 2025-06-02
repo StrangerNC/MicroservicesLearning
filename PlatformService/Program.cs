@@ -19,6 +19,7 @@ public class Program
         builder.Services.AddScoped<IPlatformRepository, PlatformRepository>();
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         builder.Services.AddHttpClient<ICommandDataClient, CommandDataClient>();
+        Console.WriteLine($"--> CommandService Endpoint {builder.Configuration["CommandService"]}");
         builder.Services.AddControllers();
         var app = builder.Build();
 
@@ -31,7 +32,7 @@ public class Program
         }
 
 
-        app.UseHttpsRedirection();
+        // app.UseHttpsRedirection();
 
         app.UseAuthorization();
 
