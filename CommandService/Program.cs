@@ -1,3 +1,6 @@
+using CommandsService.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace CommandsService;
 
 public class Program
@@ -12,6 +15,9 @@ public class Program
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
         builder.Services.AddControllers();
+        builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("InMemoryDb"));
+        builder.Services.AddScoped<ICommandRepository, CommandRepository>();
+        builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         var app = builder.Build();
 
@@ -22,9 +28,9 @@ public class Program
         }
 
         // app.UseHttpsRedirection();
-        
+
         app.UseAuthorization();
-        
+
         app.MapControllers();
 
         app.Run();

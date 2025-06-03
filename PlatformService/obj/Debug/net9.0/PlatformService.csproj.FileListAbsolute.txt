@@ -326,3 +326,4 @@
 /Users/khurshedegamov/RiderProjects/microservices-learning/PlatformService/obj/Debug/net9.0/PlatformService.pdb
 /Users/khurshedegamov/RiderProjects/microservices-learning/PlatformService/obj/Debug/net9.0/PlatformService.genruntimeconfig.cache
 /Users/khurshedegamov/RiderProjects/microservices-learning/PlatformService/obj/Debug/net9.0/ref/PlatformService.dll
+/Users/khurshedegamov/RiderProjects/microservices-learning/PlatformService/bin/Debug/net9.0/appsettings.Production.json

@@ -19,7 +19,7 @@ public class PlatformsController(IPlatformRepository repository, IMapper mapper,
     [HttpGet]
     public ActionResult<IEnumerable<PlatformReadDto>> GetAllPlatforms()
     {
-        Console.WriteLine("--> Get all platforms...");
+        Console.WriteLine("--> Get all platforms");
         var platformItem = _repository.GetAllPlatforms();
         return Ok(_mapper.Map<IEnumerable<PlatformReadDto>>(platformItem));
     }

@@ -15,22 +15,28 @@ public class Program
 
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
-        builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("InMemoryDatabase"));
         builder.Services.AddScoped<IPlatformRepository, PlatformRepository>();
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         builder.Services.AddHttpClient<ICommandDataClient, CommandDataClient>();
         Console.WriteLine($"--> CommandService Endpoint {builder.Configuration["CommandService"]}");
         builder.Services.AddControllers();
-        var app = builder.Build();
-
-        PrepDb.PrepPopulation(app);
-
         // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
+        if (builder.Environment.IsProduction())
         {
-            app.MapOpenApi();
+            Console.WriteLine("--> Production environment");
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("PlatformConn")));
+        }
+        else
+        {
+            Console.WriteLine("--> Development environment");
+            // app.MapOpenApi();
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("InMemoryDatabase"));
         }
 
+        var app = builder.Build();
+
+        PrepDb.PrepPopulation(app, app.Environment.IsProduction());
 
         // app.UseHttpsRedirection();
 
