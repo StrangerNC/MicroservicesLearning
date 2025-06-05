@@ -6,8 +6,8 @@ namespace PlatformService.SyncDataService.Http;
 
 public class CommandDataClient(HttpClient httpClient, IConfiguration configuration) : ICommandDataClient
 {
-    private readonly HttpClient _httpClient = httpClient;
     private readonly IConfiguration _configuration = configuration;
+    private readonly HttpClient _httpClient = httpClient;
 
     public async Task SendPlatformToCommand(PlatformReadDto platform)
     {
@@ -18,12 +18,8 @@ public class CommandDataClient(HttpClient httpClient, IConfiguration configurati
         );
         var response = await _httpClient.PostAsync($"{_configuration["CommandService"]}", httpContent);
         if (response.IsSuccessStatusCode)
-        {
             Console.WriteLine("--> Sync POST to CommandService was OK!");
-        }
         else
-        {
             Console.WriteLine("--> Sync POST to CommandService was NOT OK!");
-        }
     }
 }

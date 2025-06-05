@@ -160,3 +160,9 @@
 /Users/khurshedegamov/RiderProjects/microservices-learning/CommandService/obj/Debug/net9.0/CommandService.pdb
 /Users/khurshedegamov/RiderProjects/microservices-learning/CommandService/obj/Debug/net9.0/CommandService.genruntimeconfig.cache
 /Users/khurshedegamov/RiderProjects/microservices-learning/CommandService/obj/Debug/net9.0/ref/CommandService.dll
+/Users/khurshedegamov/RiderProjects/microservices-learning/CommandService/bin/Debug/net9.0/appsettings.Production.json
+/Users/khurshedegamov/RiderProjects/microservices-learning/CommandService/bin/Debug/net9.0/RabbitMQ.Client.dll
+/Users/khurshedegamov/RiderProjects/microservices-learning/CommandService/bin/Debug/net9.0/Google.Protobuf.dll
+/Users/khurshedegamov/RiderProjects/microservices-learning/CommandService/bin/Debug/net9.0/Grpc.Core.Api.dll
+/Users/khurshedegamov/RiderProjects/microservices-learning/CommandService/bin/Debug/net9.0/Grpc.Net.Client.dll
+/Users/khurshedegamov/RiderProjects/microservices-learning/CommandService/bin/Debug/net9.0/Grpc.Net.Common.dll

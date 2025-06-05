@@ -1,4 +1,3 @@
-using System.Security.Cryptography;
 using PlatformService.Models;
 
 namespace PlatformService.Data;
@@ -22,10 +21,7 @@ public class PlatformRepository(AppDbContext context) : IPlatformRepository
 
     public void CreatePlatform(Platform platform)
     {
-        if (platform == null)
-        {
-            throw new ArgumentNullException(nameof(platform));
-        }
+        if (platform == null) throw new ArgumentNullException(nameof(platform));
         context.Platforms.Add(platform);
     }
 }

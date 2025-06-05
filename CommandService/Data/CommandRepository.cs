@@ -18,10 +18,7 @@ public class CommandRepository(AppDbContext context) : ICommandRepository
 
     public void CreatePlatform(Platform platform)
     {
-        if (platform == null)
-        {
-            throw new ArgumentNullException(nameof(platform));
-        }
+        if (platform == null) throw new ArgumentNullException(nameof(platform));
 
         _context.Platforms.Add(platform);
     }
@@ -29,6 +26,11 @@ public class CommandRepository(AppDbContext context) : ICommandRepository
     public bool PlatformExists(int platformId)
     {
         return _context.Platforms.Any(p => p.Id == platformId);
+    }
+
+    public bool ExternalPlatformExists(int externalId)
+    {
+        return _context.Platforms.Any(p => p.ExternalId == externalId);
     }
 
     public IEnumerable<Command> GetCommandsForPlatform(int platformId)
@@ -43,10 +45,8 @@ public class CommandRepository(AppDbContext context) : ICommandRepository
 
     public void CreateCommand(int platformId, Command command)
     {
-        if (command == null)
-        {
-            throw new ArgumentNullException(nameof(command));
-        }
+        if (command == null) throw new ArgumentNullException(nameof(command));
+
         command.PlatformId = platformId;
         _context.Commands.Add(command);
     }

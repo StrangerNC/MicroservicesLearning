@@ -1,4 +1,7 @@
+using CommandsService.AsyncDataService;
 using CommandsService.Data;
+using CommandsService.EventProcessing;
+using CommandsService.SyncDataServices.Grpc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CommandsService;
@@ -17,15 +20,18 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("InMemoryDb"));
         builder.Services.AddScoped<ICommandRepository, CommandRepository>();
+        builder.Services.AddScoped<IPlatformDataClient, PlatformDataClient>();
+        builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
+        builder.Services.AddHostedService<MessageBusSubscriber>();
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         var app = builder.Build();
-
+        
+        Console.WriteLine("HELLO");
+        
+        PrepDb.PrepPopulation(app);
         // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
-        {
-            app.MapOpenApi();
-        }
+        if (app.Environment.IsDevelopment()) app.MapOpenApi();
 
         // app.UseHttpsRedirection();
 

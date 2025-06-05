@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using PlatformService.AsyncDataService;
 using PlatformService.Data;
+using PlatformService.SyncDataService.Grpc;
 using PlatformService.SyncDataService.Http;
 
 namespace PlatformService;
@@ -17,7 +19,9 @@ public class Program
         builder.Services.AddOpenApi();
         builder.Services.AddScoped<IPlatformRepository, PlatformRepository>();
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
         builder.Services.AddHttpClient<ICommandDataClient, CommandDataClient>();
+        builder.Services.AddGrpc();
         Console.WriteLine($"--> CommandService Endpoint {builder.Configuration["CommandService"]}");
         builder.Services.AddControllers();
         // Configure the HTTP request pipeline.
@@ -36,6 +40,8 @@ public class Program
 
         var app = builder.Build();
 
+        Console.WriteLine("HELLO");
+
         PrepDb.PrepPopulation(app, app.Environment.IsProduction());
 
         // app.UseHttpsRedirection();
@@ -43,6 +49,9 @@ public class Program
         app.UseAuthorization();
 
         app.MapControllers();
+        app.MapGrpcService<GrpcPlatformService>();
+        app.MapGet("/protos/platform.proto",
+            async context => { await context.Response.WriteAsync(File.ReadAllText("Protos/platform.proto")); });
 
         app.Run();
     }

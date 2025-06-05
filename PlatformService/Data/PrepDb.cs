@@ -31,19 +31,19 @@ public static class PrepDb
             Console.WriteLine("--> Seeding data...");
 
             context.Platforms.AddRange(
-                new Platform()
+                new Platform
                 {
                     Name = "Dotnet Core",
                     Publisher = "Microsoft",
                     Cost = "Free"
                 },
-                new Platform()
+                new Platform
                 {
                     Name = "Sql Server Express",
                     Publisher = "Microsoft",
                     Cost = "Free"
                 },
-                new Platform()
+                new Platform
                 {
                     Name = "Kubernetes",
                     Publisher = "Cloud Native Computing Foundation",
